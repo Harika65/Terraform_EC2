@@ -4,7 +4,7 @@ module "mysecurity" {
 }
 
 output "mysecurity" {
-  value = module.mysecurity.security_group_id
+  value = module.mysecurity.security_group_name
 }
 
 
@@ -15,13 +15,20 @@ module "myec2" {
     itype = "t2.micro"
     ikey = "MY-key-pair-mumbai-hari"
     volume_size = 15
-    security_group_id = module.mysecurity.security_group_id
+    security_group_id = module.mysecurity.security_group_name
+
+    depends_on = [
+      module.mybucket1001,  # Entire module reference
+      module.mysecurity     # Entire module reference
+    ]
 }
 
 module "mybucket1001" {
     source = "./bucket"
     bucket_name = "terraform-s3-bucket-hari"
+
 }
+
 
 
    

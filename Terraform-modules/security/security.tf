@@ -16,7 +16,7 @@ resource "aws_security_group" "mysg" {
      }
 }
 
-output "security_group_id" {
-  value = aws_security_group.mysg.id  # Output the security group ID
+output "security_group_name" {
+  value = aws_security_group.mysg.name  # Output the security group name
 }
 
