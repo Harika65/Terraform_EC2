@@ -24,15 +24,9 @@ spec:
             - name: DB_PORT
               value: "3306"
             - name: DB_USER
-              valueFrom:
-                secretKeyRef:
-                  name: db-secret
-                  key: username
+              value: "root"
             - name: DB_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: db-secret
-                  key: password
+              value: "devopspassword"
 
 
 ---
